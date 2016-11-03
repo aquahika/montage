@@ -1,0 +1,25 @@
+/*
+#main {
+	width: 600px;
+	p {
+		margin: 0 0 1em;
+		em {
+			color: #f00;
+		}
+	}
+	small {
+		font-size: small;
+	}
+}*/
+#montage {
+  width: 500px;
+  height: 500px;
+  margin: auto;
+  margin-top: 100px;
+  border: 1px solid black;
+  display: block; }
+  #montage svg {
+    width: 500px;
+    height: 500px; }
+
+/*# sourceMappingURL=style.css.map */

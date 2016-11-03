@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Montage</title>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="">
+
+<link rel="stylesheet" type="text/css" href="./css/normalize.css">
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+
+<script type="text/javascript" src="./scripts/jquery-3.1.1.min.js"></script>
+
+<!-- basic/core scripts -->
+<script type="text/javascript" src="./scripts/basic.js"></script>
+
+<!-- component parts -->
+<script type="text/javascript" src="./scripts/components/mouth.js"></script>
+<script type="text/javascript" src="./scripts/components/eye.js"></script>
+<script type="text/javascript" src="./scripts/components/ear.js"></script>
+
+<!-- main routine -->
+<script type="text/javascript" src="./scripts/script.js"></script>
+
+
+
+<link rel="shortcut icon" href="">
+</head>
+<body>
+
+<!-- 顔のパーツの移動はposition:absoluteからのtop:Xpxでかえられる-->
+
+  <svg id='montage'>
+    <svg id='ear'></svg>
+    <circle id='countor'/>
+    <svg id='mouth'></svg>
+    <svg id='eye'></svg>
+
+  </svg>
+
+</body>
+</html>

@@ -13,7 +13,8 @@ montageController.draw(values);
 var values = {
   countor:{
     stroke  : 3,
-    fill    : '#FFE4C4'
+    //fill    : '#FFE4C4'
+    fill    : 'white'
   },
 
   eye:{
@@ -25,8 +26,8 @@ var values = {
       bottom  :   { x:0 , y:60},    // N, +
       right   :   { x:60 , y:30},   // +, N
       left    :   { x:-60 , y:30},  // -, N
-      controls :  [40,45,51,20,12,40,32,32],  // +
-      stroke  :  0,
+      controls :  [10,45,81,40,10,10,12,12],  // +
+      stroke  :  1,
       color   :  'white'
     },
 
@@ -43,23 +44,23 @@ var values = {
   mouth:{
     width       : 100,               // +
     height      : 70,                // +
-    topControl  :  {x:-50 , y:-60},  // N, -
-    bottomControl: {x:60 , y:60},     // N, +
-    color       : 'purple',
-    stroke      : 0
+    topControl  :  {x:-50 , y:60},  // N, B(-)
+    bottomControl: {x:60 , y:-60},     // N, B(+)
+    stroke      : 1,
+    color       : 'white'
   },
   ear:{
 
     start:{
-      deg       :  -70,             // -
-      control   : {x:190,  y:-80}   // +,N
+      deg       :  -80,             // -
+      control   : {x:90,  y:200}   // +,N
     },
     end:{
       deg       : 10,               // +
-      control   : {x:80,  y:-200}    // +,N
+      control   : {x:180,  y:-200}    // +,N
     },
-    stroke: 0,
-    color : 'pink'
+    stroke: 1,
+    color : 'white'
 
 
   }
@@ -257,7 +258,6 @@ class Montage{
 
 
 
-
   drawMouth(mouth,fill='white',strokeWidth='1px'){
 
     var strokeStr  = `M${mouth.topStart.point.x} ${mouth.topStart.point.y} `
@@ -275,7 +275,6 @@ class Montage{
     stroke.attr('stroke-width',strokeWidth);
     stroke.attr('d',strokeStr);
     stroke.attr('fill',fill)
-
 
     this.mouthView.append(stroke);
 

@@ -58,3 +58,7 @@ function svg2jqr(val){
   var dom = document.createElementNS("http://www.w3.org/2000/svg", val);
   return $(dom);
 }
+
+function getRandomInt(min, max) {
+  return Math.floor( Math.random() * (max - min + 1) ) + min;
+}

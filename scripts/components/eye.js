@@ -17,7 +17,6 @@ class Eye{
       this.possitiveError = new Error("Invalid argument. It muse be positive value.(>=0)");
 
       this.controls = [0,0,0,0,0,0,0,0];
-
     }
 
     lineSymY(){

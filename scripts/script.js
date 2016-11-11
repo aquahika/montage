@@ -1,14 +1,61 @@
 
 $(document).ready(function(){
   //$("#countor").css("border", "3px solid red");
-var montageController = new Montage;
+  var montageController = new Montage;
 
-montageController.load(values);
-montageController.draw(values);
+  values.eye.width    = getRandomInt(180,200);
+  values.eye.height   = getRandomInt(20,120);
 
+  values.eye.sclera.top.y = getRandomInt(-120,-20);
+  values.eye.sclera.top.x = getRandomInt(-50,50);
+
+  values.eye.sclera.bottom.y = getRandomInt(20,120);
+  values.eye.sclera.bottom.x = getRandomInt(-50,50);
+
+  values.eye.sclera.right.y = getRandomInt(-50,50);
+  values.eye.sclera.right.x = getRandomInt(20,120);
+
+  values.eye.sclera.left.y = getRandomInt(-50,50);
+  values.eye.sclera.left.x = getRandomInt(-120,20);
+
+  values.mouth.width       = getRandomInt(20,260);
+  values.mouth.height      = getRandomInt(20,180);
+  values.mouth.topControl.x = getRandomInt(-50,50);
+  values.mouth.topControl.y = getRandomInt(-50,50);
+  values.mouth.bottomControl.x = getRandomInt(-150,150);
+  values.mouth.bottomControl.y = getRandomInt(-150,150);
+
+
+  for(var i = 0; i <= 7; i++){
+    values.eye.sclera.controls[i] = getRandomInt(10,80);
+  }
+
+  montageController.load(values);
+  montageController.draw(values);
 
 });
 
+function getRandomInt(min, max) {
+  return Math.floor( Math.random() * (max - min + 1) ) + min;
+}
+
+function handleDownload() {
+  // XMLシリアライザインスタンス生成
+  var xs = new XMLSerializer();
+  // DOMをシリアライズして文字列にする
+  var svgroot = document.querySelector('#montage');
+  var xml = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>' + xs.serializeToString(svgroot);
+
+  var content = 'あいうえお';
+  var blob = new Blob([ xml ], { "type" : "text/plain" });
+
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.target = '_blank';
+  a.download = 'ファイル名.svg';
+  a.click();
+
+}
 
 var values = {
   countor:{
@@ -24,9 +71,9 @@ var values = {
     sclera:{  //白目
       top     :   { x:0 , y:-60},   // N, -
       bottom  :   { x:0 , y:60},    // N, +
-      right   :   { x:60 , y:30},   // +, N
-      left    :   { x:-60 , y:30},  // -, N
-      controls :  [10,45,81,40,10,10,12,12],  // +
+      right   :   { x:60 , y:0},   // +, N
+      left    :   { x:-60 , y:0},  // -, N
+      controls :  [10,35,10,10,50,50,120,52],  // +
       stroke  :  1,
       color   :  'white'
     },
@@ -36,19 +83,20 @@ var values = {
       bottom  :   { x:0 , y:30},    // N, +
       right   :   { x:30 , y:0},    // +, N
       left    :   { x:-30 , y:0},   // -, N
-      controls :  [20,20,20,10,20,20,20,20],  //+
+      controls :  [20,20,20,20,20,20,20,20],  //+
       color   :  'black'
     }
 
   },
   mouth:{
     width       : 100,               // +
-    height      : 70,                // +
+    height      : 100,                // +
     topControl  :  {x:-50 , y:60},  // N, B(-)
     bottomControl: {x:60 , y:-60},     // N, B(+)
     stroke      : 1,
     color       : 'white'
   },
+
   ear:{
 
     start:{
@@ -205,8 +253,8 @@ class Montage{
     this.leftEar   = Ear.offset(this.earModel.lineSymY(),earOrigin);
 
     this.earView.empty();
-    this.drawEar(this.rightEar,values.ear.color,values.ear.stroke);
-    this.drawEar(this.leftEar,values.ear.color,values.ear.stroke);
+    //this.drawEar(this.rightEar,values.ear.color,values.ear.stroke);
+    //this.drawEar(this.leftEar,values.ear.color,values.ear.stroke);
   }
 
 

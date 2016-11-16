@@ -1,0 +1,102 @@
+{
+	"countor": {
+		"stroke": 3,
+		"fill": "white"
+	},
+	"eye": {
+		"width": 184,
+		"height": 119,
+		"sclera": {
+			"top": {
+				"x": -45,
+				"y": -43
+			},
+			"bottom": {
+				"x": -6,
+				"y": 77
+			},
+			"right": {
+				"x": 50,
+				"y": 2
+			},
+			"left": {
+				"x": -102,
+				"y": -50
+			},
+			"controls": [
+				22,
+				25,
+				42,
+				69,
+				30,
+				43,
+				52,
+				10
+			],
+			"stroke": 1,
+			"color": "white"
+		},
+		"pupil": {
+			"top": {
+				"x": 0,
+				"y": -30
+			},
+			"bottom": {
+				"x": 0,
+				"y": 30
+			},
+			"right": {
+				"x": 30,
+				"y": 0
+			},
+			"left": {
+				"x": -30,
+				"y": 0
+			},
+			"controls": [
+				20,
+				20,
+				20,
+				20,
+				20,
+				20,
+				20,
+				20
+			],
+			"color": "black"
+		}
+	},
+	"mouth": {
+		"width": 227,
+		"height": 138,
+		"topControl": {
+			"x": -39,
+			"y": -9
+		},
+		"bottomControl": {
+			"x": -45,
+			"y": 1
+		},
+		"stroke": 1,
+		"color": "white"
+	},
+	"ear": {
+		"enable": false,
+		"start": {
+			"deg": -80,
+			"control": {
+				"x": 90,
+				"y": 200
+			}
+		},
+		"end": {
+			"deg": 10,
+			"control": {
+				"x": 180,
+				"y": -200
+			}
+		},
+		"stroke": 1,
+		"color": "white"
+	}
+}

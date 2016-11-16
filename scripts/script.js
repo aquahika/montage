@@ -1,9 +1,36 @@
 
 $(document).ready(function(){
   //$("#countor").css("border", "3px solid red");
+  setNumber(1);
   generate();
 });
 
+function buildAll(){
+  setNumber(1);
+  for(var i=1 ; i<=500 ; i++){
+    handleDownloadAndReGenerate();
+  }
+}
+
+function setNumber(val){
+  $('#number').val((("000"+val).slice(-4)));
+}
+function getNumber(){
+  return Number($('#number').val());
+}
+
+$(window).keydown(function(e){
+
+    if(e.keyCode == 73){
+      // 'I' means download and next
+      handleDownloadAndReGenerate();
+    }
+
+    if(e.keyCode == 69){
+      // 'E' means NO, re-generate.
+      generate();
+    }
+});
 
 function generate(){
   var montageController = new Montage;
@@ -11,17 +38,17 @@ function generate(){
   values.eye.width    = getRandomInt(180,200);
   values.eye.height   = getRandomInt(20,120);
 
-  values.eye.sclera.top.y = getRandomInt(-120,-20);
+  values.eye.sclera.top.y = getRandomInt(-120,-35);
   values.eye.sclera.top.x = getRandomInt(-50,50);
 
-  values.eye.sclera.bottom.y = getRandomInt(20,120);
+  values.eye.sclera.bottom.y = getRandomInt(35,120);
   values.eye.sclera.bottom.x = getRandomInt(-50,50);
 
   values.eye.sclera.right.y = getRandomInt(-50,50);
-  values.eye.sclera.right.x = getRandomInt(20,120);
+  values.eye.sclera.right.x = getRandomInt(35,120);
 
   values.eye.sclera.left.y = getRandomInt(-50,50);
-  values.eye.sclera.left.x = getRandomInt(-120,20);
+  values.eye.sclera.left.x = getRandomInt(-120,-35);
 
   values.mouth.width       = getRandomInt(20,260);
   values.mouth.height      = getRandomInt(20,180);
@@ -29,6 +56,28 @@ function generate(){
   values.mouth.topControl.y = getRandomInt(-50,50);
   values.mouth.bottomControl.x = getRandomInt(-150,150);
   values.mouth.bottomControl.y = getRandomInt(-150,150);
+
+
+/*
+  if(getRandomInt(0,500) < 250){
+    values.ear.enable = true;
+    values.ear.start.deg = getRandomInt(-80,0);
+    values.ear.start.control.x = getRandomInt(10,200);
+    values.ear.start.control.y = getRandomInt(-200,200);
+    values.ear.end.deg = getRandomInt(values.ear.start.deg,30);
+    values.ear.end.control.x = getRandomInt(10,200);
+    values.ear.end.control.y = getRandomInt(-200,200);
+
+  }else{
+    values.ear.enable = false;
+    values.ear.start.deg = null;
+    values.ear.start.control.x = null;
+    values.ear.start.control.y = null;
+    values.ear.end.deg = null;
+    values.ear.end.control.x = null;
+    values.ear.end.control.y = null;
+  }*/
+
 
 
   for(var i = 0; i <= 7; i++){
@@ -39,18 +88,29 @@ function generate(){
   montageController.draw(values);
 }
 
-function handleDownload() {
+function handleDownloadAndReGenerate(){
+  handleDownload();
+  setNumber(getNumber()+1);
+  generate();
+}
 
+function handleDownload() {
   var xs = new XMLSerializer();
   var svgroot = document.querySelector('#montage');
   var xml = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>' + xs.serializeToString(svgroot);
   var blob = new Blob([ xml ], { "type" : "text/plain" });
 
-  var a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.target = '_blank';
-  a.download = 'ファイル名.svg';
-  a.click();
+  var svgLink = document.createElement("a");
+  svgLink.href = URL.createObjectURL(blob);
+  svgLink.target = '_blank';
+  svgLink.download = $('#number').val()+'.svg';
+  svgLink.click();
+
+  var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(values,undefined,"\t"))
+  jsonLink = document.createElement('a')
+  jsonLink.setAttribute("href",dataStr)
+  jsonLink.setAttribute("download", $('#number').val()+'.json')
+  jsonLink.click();
 
 }
 
@@ -95,6 +155,8 @@ var values = {
   },
 
   ear:{
+
+    enable : false,
 
     start:{
       deg       :  -80,             // -
@@ -250,8 +312,11 @@ class Montage{
     this.leftEar   = Ear.offset(this.earModel.lineSymY(),earOrigin);
 
     this.earView.empty();
-    //this.drawEar(this.rightEar,values.ear.color,values.ear.stroke);
-    //this.drawEar(this.leftEar,values.ear.color,values.ear.stroke);
+
+    if(values.ear.enable == true){
+      this.drawEar(this.rightEar,values.ear.color,values.ear.stroke);
+      this.drawEar(this.leftEar,values.ear.color,values.ear.stroke);
+    }
   }
 
 

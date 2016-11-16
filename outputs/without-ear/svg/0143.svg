@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" id="montage">
+    <svg id="ear"/>
+    <circle id="countor" stroke="black" cx="250" cy="250" r="200" stroke-width="3" fill="white"/>
+    <svg id="mouth"><path stroke="black" stroke-width="1" d="M158 392 C117 427, 383 427, 342 392   M158 392 C71 449, 429 449, 342 392" fill="white"/></svg>
+    <svg id="eye"><path stroke="black" stroke-width="1" d="M298 133 C298 58, 317 55, 360 55   C432 55, 382 166, 382 211   C382 258, 399 241, 325 241   C313 241, 298 152, 298 133  Z " fill="white"/><path stroke="black" stroke-width="1" d="M202 133 C202 58, 183 55, 140 55   C68 55, 118 166, 118 211   C118 258, 101 241, 175 241   C187 241, 202 152, 202 133  Z " fill="white"/><path stroke="black" stroke-width="0" d="M313 168 C313 148, 323 138, 343 138   C363 138, 373 148, 373 168   C373 188, 363 198, 343 198   C323 198, 313 188, 313 168  Z " fill="black"/><path stroke="black" stroke-width="0" d="M187 168 C187 148, 177 138, 157 138   C137 138, 127 148, 127 168   C127 188, 137 198, 157 198   C177 198, 187 188, 187 168  Z " fill="black"/></svg>
+
+  </svg>

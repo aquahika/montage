@@ -1,6 +1,11 @@
 
 $(document).ready(function(){
   //$("#countor").css("border", "3px solid red");
+  generate();
+});
+
+
+function generate(){
   var montageController = new Montage;
 
   values.eye.width    = getRandomInt(180,200);
@@ -32,21 +37,13 @@ $(document).ready(function(){
 
   montageController.load(values);
   montageController.draw(values);
-
-});
-
-function getRandomInt(min, max) {
-  return Math.floor( Math.random() * (max - min + 1) ) + min;
 }
 
 function handleDownload() {
-  // XMLシリアライザインスタンス生成
+
   var xs = new XMLSerializer();
-  // DOMをシリアライズして文字列にする
   var svgroot = document.querySelector('#montage');
   var xml = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>' + xs.serializeToString(svgroot);
-
-  var content = 'あいうえお';
   var blob = new Blob([ xml ], { "type" : "text/plain" });
 
   var a = document.createElement("a");

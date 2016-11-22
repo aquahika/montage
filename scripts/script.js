@@ -57,8 +57,18 @@ function generate(){
   values.mouth.bottomControl.x = getRandomInt(-150,150);
   values.mouth.bottomControl.y = getRandomInt(-150,150);
 
+  var size  = getRandomInt(10,60);
+  values.eye.pupil.top.y     =  -size;
+  values.eye.pupil.bottom.y     =  size;
+  values.eye.pupil.left.x     =  -size;
+  values.eye.pupil.right.x     =  size;
 
-/*
+  for(var i = 0; i <= 7; i++){
+    values.eye.pupil.controls[i] = size*0.5;
+  }
+
+
+
   if(getRandomInt(0,500) < 250){
     values.ear.enable = true;
     values.ear.start.deg = getRandomInt(-80,0);
@@ -76,7 +86,7 @@ function generate(){
     values.ear.end.deg = null;
     values.ear.end.control.x = null;
     values.ear.end.control.y = null;
-  }*/
+  }
 
 
 
@@ -131,7 +141,7 @@ var values = {
       right   :   { x:60 , y:0},   // +, N
       left    :   { x:-60 , y:0},  // -, N
       controls :  [10,35,10,10,50,50,120,52],  // +
-      stroke  :  1,
+      stroke  :  3,
       color   :  'white'
     },
 
@@ -150,13 +160,13 @@ var values = {
     height      : 100,                // +
     topControl  :  {x:-50 , y:60},  // N, B(-)
     bottomControl: {x:60 , y:-60},     // N, B(+)
-    stroke      : 1,
+    stroke      : 3,
     color       : 'white'
   },
 
   ear:{
 
-    enable : false,
+    enable : true,
 
     start:{
       deg       :  -80,             // -
@@ -166,7 +176,7 @@ var values = {
       deg       : 10,               // +
       control   : {x:180,  y:-200}    // +,N
     },
-    stroke: 1,
+    stroke: 3,
     color : 'white'
 
 

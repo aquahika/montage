@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" id="montage">
-    <svg id="ear"><path stroke="black" stroke-width="1" d="M358.92780700300546 82.26588641091521 C545.9278070030055 58.265886410915215, 608.1009706904881 431.14622569785473, 434.1009706904881 328.14622569785473   " fill="white"/><path stroke="black" stroke-width="1" d="M141.07219299699454 82.26588641091521 C-45.927807003005455 58.265886410915215, -108.10097069048808 431.14622569785473, 65.89902930951192 328.14622569785473   " fill="white"/></svg>
-    <circle id="countor" stroke="black" cx="250" cy="250" r="200" stroke-width="3" fill="white"/>
-    <svg id="mouth"><path stroke="black" stroke-width="1" d="M197 370 C209 322, 291 322, 303 370   M197 370 C230 246, 270 246, 303 370" fill="white"/></svg>
-    <svg id="eye"><path stroke="black" stroke-width="1" d="M250 99 C250 45, 324 31, 374 31   C435 31, 447 128, 447 149   C447 226, 350 212, 315 212   C278 212, 250 121, 250 99  Z " fill="white"/><path stroke="black" stroke-width="1" d="M250 99 C250 45, 176 31, 126 31   C65 31, 53 128, 53 149   C53 226, 150 212, 185 212   C222 212, 250 121, 250 99  Z " fill="white"/><path stroke="black" stroke-width="0" d="M314 134 C314 114, 324 104, 344 104   C364 104, 374 114, 374 134   C374 154, 364 164, 344 164   C324 164, 314 154, 314 134  Z " fill="black"/><path stroke="black" stroke-width="0" d="M186 134 C186 114, 176 104, 156 104   C136 104, 126 114, 126 134   C126 154, 136 164, 156 164   C176 164, 186 154, 186 134  Z " fill="black"/></svg>
-
-  </svg>
